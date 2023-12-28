@@ -5,10 +5,28 @@ const headers={
 },
 {sub}=JSON.parse(Buffer.from(process.env.DUOLINGO_JWT.split('.')[1], 'base64').toString());
 
+let totalXp = 0;
+
+const sendToDiscord = async (webhookUrl, message) => {
+  await fetch(webhookUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      content: message,
+      username: 'Duolingo - Xp',
+      avatar_url: 'https://th.bing.com/th/id/OIP.sEBFvfASegiUc95lVyvwRAHaHa?rs=1&pid=ImgDetMain'
+    })
+  });
+};
+
 (async()=>{
   const {fromLanguage,learningLanguage,xpGains}=await fetch(`https://www.duolingo.com/2017-06-30/users/${sub}?fields=fromLanguage,learningLanguage,xpGains`,{headers}).then(r=>r.json());
+
   const lessons=Number(process.env.LESSONS),
   skillId=xpGains.find(x=>x.skillId).skillId;
+  
   for(const i of Array(lessons).keys()){
     const session=await fetch('https://www.duolingo.com/2017-06-30/sessions',{
       body:JSON.stringify({
@@ -26,8 +44,9 @@ const headers={
       }),
       headers,
       method:'POST'
-    }).then(r=>r.json()),
-    response=await fetch(`https://www.duolingo.com/2017-06-30/sessions/${session.id}`,{
+    }).then(r=>r.json());
+    
+    const response=await fetch(`https://www.duolingo.com/2017-06-30/sessions/${session.id}`,{
       body:JSON.stringify({
         ...session,
         heartsLeft:0,
@@ -41,6 +60,12 @@ const headers={
       headers,
       method:'PUT'
     }).then(r=>r.json());
-    console.log(`🪙 | ${response.xpGain}.00 `)
+    
+    totalXp += response.xpGain;
+    console.log(`🪙 | ${response.xpGain}.00 `);
+
+    if (totalXp >= 20) {
+      await sendToDiscord(process.env.WEBHOOK, `🎉 Parabéns! Você ganhou 20 XP no Duolingo! ⭐ Seu total de XP agora é: ${totalXp} XP! 🚀 Continue assim!`);
+    }
   }
 })()

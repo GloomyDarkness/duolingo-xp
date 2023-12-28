@@ -1,11 +1,11 @@
-name: Manter minha ofensiva
-
+name: Modificações no código
 on:
-  schedule:
-    - cron: '0 9 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
-  study:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,10 @@ jobs:
         with:
           node-version: 18
 
-      - run: node index.js
+      - run: npm install
+
+      - run: npm install -g node-fetch
+
+      - run: npx semantic-release
         env:
-          DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT }}
-          LESSONS: 3
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
