@@ -2,7 +2,7 @@
 
 !Mantenha sua sequência e ganhe XP no Duolingo
 
-<p align=“center”> <img src="duo.svg" width="128px"/> </p>
+<p align="center"> <img src="duo.svg" width="128px"/> </p>
 
 Este projeto é um script que automatiza as práticas do Duolingo para você. Assim, você pode manter sua sequência e subir no ranking da liga sem se preocupar em perder o nível.
 
