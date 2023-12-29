@@ -69,3 +69,4 @@ const sendToDiscord = async (webhookUrl, message) => {
     }
   }
 })()
+
