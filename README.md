@@ -5,7 +5,7 @@ Mantenha sua sequência e ganhe XP no Duolingo
 </p>
   
 <p align="center">
-  <a href="https://discord.gg/8dEJGEw7tU" target="_blank">
+  <a href="https://discord.gg/8dEJGEw7tU" target="_blank" rel="noopener noreferrer">
     <img src="duo.svg" width="128px"/>
   </a>
 </p>
