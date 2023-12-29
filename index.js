@@ -1,5 +1,3 @@
-console.log(process.env.WEBHOOK);
-
 const headers={
   Authorization:`Bearer ${process.env.DUOLINGO_JWT}`,
   'Content-Type':'application/json',
@@ -67,7 +65,7 @@ const sendToDiscord = async (webhookUrl, message) => {
     console.log(`🪙 | ${response.xpGain}.00 `);
 
     if (totalXp >= 20) {
-      await sendToDiscord(process.env.WEBHOOK.toString(), `🎉 Parabéns! Você ganhou 20 XP no Duolingo! ⭐ Seu total de XP agora é: ${totalXp} XP! 🚀 Continue assim!`);
+      await sendToDiscord(process.env.WEBHOOK), `🎉 Parabéns! Você ganhou 20 XP no Duolingo! ⭐ Seu total de XP agora é: ${totalXp} XP! 🚀 Continue assim!`);
     }
   }
 })()
