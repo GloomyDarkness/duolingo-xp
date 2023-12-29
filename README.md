@@ -1,17 +1,20 @@
+<h1 align="center">Duolingo Xp </h1>
 
-<p align="center" style="font-size: 24px;">
+<h3 align="center">
 Mantenha sua sequência e ganhe XP no Duolingo
 </p>
 
- <p align="center"> <img src="duo.svg" width="128px"/> </p>
+<p align="center">
+  <a href="https://discord.gg/8dEJGEw7tU">
+    <img src="duo.svg" width="128px"/>
+  </a>
+</p>
 
-
-<p align="center" style="font-size: 18px;">
+<h4 align="center">
   Este projeto é um script que automatiza as práticas do Duolingo para você. Assim, você pode manter sua sequência e subir no ranking da liga sem se preocupar em perder o nível.
 </p>
 
-
-### Como usar
+<h3 align="center"> Como usar</h1>
 
 1. Faça um fork deste repositório para o seu github
 2. Acesse o site do Duolingo e faça login na sua conta
