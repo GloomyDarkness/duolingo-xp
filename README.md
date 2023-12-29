@@ -3,9 +3,9 @@
 <h3 align="center">
 Mantenha sua sequência e ganhe XP no Duolingo
 </p>
-
+  
 <p align="center">
-  <a href="https://discord.gg/8dEJGEw7tU">
+  <a href="https://discord.gg/8dEJGEw7tU" target="_blank">
     <img src="duo.svg" width="128px"/>
   </a>
 </p>
