@@ -1,3 +1,5 @@
+console.log(process.env.WEBHOOK);
+
 const headers={
   Authorization:`Bearer ${process.env.DUOLINGO_JWT}`,
   'Content-Type':'application/json',
