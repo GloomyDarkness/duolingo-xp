@@ -5,22 +5,6 @@ const headers={
 },
 {sub}=JSON.parse(Buffer.from(process.env.DUOLINGO_JWT.split('.')[1], 'base64').toString());
 
-let totalXp = 0;
-
-const sendToDiscord = async (webhookUrl, message) => {
-  await fetch(webhookUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      content: message,
-      username: 'Duolingo - Xp',
-      avatar_url: 'https://th.bing.com/th/id/OIP.sEBFvfASegiUc95lVyvwRAHaHa?rs=1&pid=ImgDetMain'
-    })
-  });
-};
-
 (async()=>{
   const {fromLanguage,learningLanguage,xpGains}=await fetch(`https://www.duolingo.com/2017-06-30/users/${sub}?fields=fromLanguage,learningLanguage,xpGains`,{headers}).then(r=>r.json());
 
@@ -61,11 +45,7 @@ const sendToDiscord = async (webhookUrl, message) => {
       method:'PUT'
     }).then(r=>r.json());
     
-    totalXp += response.xpGain;
     console.log(`🪙 | ${response.xpGain}.00 `);
 
-    if (totalXp % 1000 === 0) {
-      await sendToDiscord(process.env.DISCORD_WEBHOOK, `🎉 Parabéns! Você ganhou ${totalXp} XP no Duolingo! ⭐ Continue assim!`);
-    }
   }
 })()
