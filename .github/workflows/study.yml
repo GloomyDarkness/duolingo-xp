@@ -23,6 +23,5 @@ jobs:
         env:
           DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT }}
           LESSONS: ${{ inputs.lessons }}
-          DISCORD_WEBHOOK: ${{ secrets.WEBHOOK }}
 
           
