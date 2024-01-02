@@ -27,8 +27,7 @@ document.cookie.split(';').find(cookie => cookie.includes('jwt_token')).split('=
 
 5. Vá para o seu repositório bifurcado e clique em Configurações > Segredos e Variáveis > Ações
 6. Clique no botão Novo segredo do repositório e digite DUOLINGO_JWT como nome do segredo e cole o valor copiado na etapa 4 como valor do segredo
-7. Adicione outro segredo do repositório chamado DISCORD_WEBHOOK e cole a URL do seu webhook do Discord como valor do segredo
-8. Vá para a guia Ações do seu repositório bifurcado e clique no botão Eu entendo meus fluxos de trabalho, vá em frente e habilite-os
+7. Vá para a guia Ações do seu repositório bifurcado e clique no botão Eu entendo meus fluxos de trabalho, vá em frente e habilite-os
 
 ## Fluxos de trabalho
 
